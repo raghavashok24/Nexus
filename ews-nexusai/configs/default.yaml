@@ -1,0 +1,23 @@
+# Default configuration for the EWS NexusAI pipeline.
+# Update `data.csv_path` to point at your local bank panel CSV before running.
+
+data:
+  csv_path: "data/bank_panel.csv"
+  target_col: "probabilistic_risk_score"
+  test_fraction: 0.2
+
+cv:
+  n_splits: 5
+
+optuna:
+  n_trials: 40
+  seed: 42
+
+evaluation:
+  binarize_threshold: 0.5
+  n_bootstrap: 1000
+  precision_at_k_n_bootstrap: 10000
+  precision_at_k_values: [5, 10, 20]
+  ablation_n_bootstrap: 1000
+
+random_state: 42
